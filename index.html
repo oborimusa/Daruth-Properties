@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Daruth Properties & Real Estate – Modern Property Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+        /* ────────────── RESET & BASE ────────────── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #12181c;
+            --primary-light: #1a2429;
+            --secondary: #1e2a2f;
+            --accent: #3a9b8a;
+            --accent-light: #5ab8a8;
+            --accent-dark: #2a7a6a;
+            --text: #f0f2f5;
+            --text-muted: #8a9aa0;
+            --white: #ffffff;
+            --radius: 12px;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            --transition: 0.3s ease;
+            --font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --header-height: 80px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ────────────── BUTTONS ────────────── */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+            box-shadow: 0 4px 16px rgba(58, 155, 138, 0.35);
+        }
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(58, 155, 138, 0.45);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--accent);
+        }
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .btn-sm {
+            padding: 10px 24px;
+            font-size: 14px;
+        }
+
+        /* ────────────── HEADER ────────────── */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(18, 24, 28, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(58, 155, 138, 0.12);
+            transition: var(--transition);
+            height: var(--header-height);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: 0 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--white);
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        .logo-sub {
+            font-size: 9px;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: block;
+            margin-top: -2px;
+        }
+
+        @media (max-width: 400px) {
+            .logo-text {
+                font-size: 17px;
+            }
+            .logo img {
+                height: 30px;
+            }
+            .logo-sub {
+                font-size: 7px;
+                letter-spacing: 0.5px;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--white);
+        }
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links .btn {
+            padding: 8px 20px;
+            font-size: 13px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            flex-shrink: 0;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--white);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 20px 24px 28px;
+                gap: 16px;
+                border-bottom: 1px solid rgba(58, 155, 138, 0.06);
+                transform: translateY(-120%);
+                transition: all 0.35s ease;
+                opacity: 0;
+                visibility: hidden;
+                backdrop-filter: blur(12px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links a {
+                font-size: 17px;
+                padding: 8px 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links .btn {
+                padding: 12px 28px;
+                font-size: 15px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 16px;
+            }
+            .logo img {
+                height: 28px;
+            }
+            .logo-sub {
+                font-size: 6px;
+            }
+        }
+
+        /* ────────────── HERO ────────────── */
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--secondary) 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(58, 155, 138, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(58, 155, 138, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-bottom: 28px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .hero-stats div {
+            text-align: left;
+        }
+
+        .hero-stats strong {
+            display: block;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .hero-stats span {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image .badge-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            background: rgba(26, 36, 41, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(58, 155, 138, 0.15);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image .badge-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 16px 8px;
+            border-radius: 8px;
+            background: rgba(18, 24, 28, 0.5);
+            transition: var(--transition);
+        }
+
+        .hero-image .badge-item:hover {
+            background: rgba(58, 155, 138, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .hero-image .badge-item i {
+            font-size: 32px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .hero-image .badge-item h4 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .hero-image .badge-item p {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        @media (max-width: 992px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-image .badge-grid {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 64px;
+            }
+
+            header .container {
+                padding: 0 12px;
+            }
+
+            .hero {
+                padding: 100px 0 50px;
+                min-height: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .hero-stats {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-stats strong {
+                font-size: 26px;
+            }
+
+            .hero-stats span {
+                font-size: 12px;
+            }
+
+            .hero-image .badge-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                padding: 16px;
+                max-width: 100%;
+            }
+
+            .hero-image .badge-item {
+                padding: 12px 6px;
+            }
+
+            .hero-image .badge-item i {
+                font-size: 24px;
+            }
+
+            .hero-image .badge-item h4 {
+                font-size: 12px;
+            }
+
+            .hero-image .badge-item p {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 26px;
+            }
+
+            .hero-image .badge-grid {
+                gap: 8px;
+                padding: 12px;
+            }
+
+            .hero-image .badge-item i {
+                font-size: 20px;
+            }
+
+            .hero-image .badge-item h4 {
+                font-size: 11px;
+            }
+
+            .container {
+                padding: 0 12px;
+            }
+
+            .hero-stats strong {
+                font-size: 22px;
+            }
+        }
+
+        /* ────────────── SECTION TITLES ────────────── */
+        .section-tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: rgba(58, 155, 138, 0.1);
+            padding: 4px 16px;
+            border-radius: 30px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(58, 155, 138, 0.15);
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-title h2 span {
+            color: var(--accent);
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 17px;
+        }
+
+        @media (max-width: 768px) {
+            .section-title h2 {
+                font-size: 28px;
+            }
+            .section-title p {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title h2 {
+                font-size: 24px;
+            }
+        }
+
+        /* ────────────── SERVICES ────────────── */
+        .services {
+            padding: 80px 0;
+            background: var(--primary-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--primary);
+            border: 1px solid rgba(58, 155, 138, 0.08);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(58, 155, 138, 0.2);
+            box-shadow: var(--shadow);
+        }
+
+        .service-card .icon {
+            font-size: 36px;
+            color: var(--accent);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .services {
+                padding: 50px 0;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .service-card {
+                padding: 24px 16px;
+            }
+
+            .service-card h3 {
+                font-size: 17px;
+            }
+
+            .service-card p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ────────────── WHY CHOOSE ────────────── */
+        .why-choose {
+            padding: 80px 0;
+            background: var(--primary);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .why-card {
+            background: var(--primary-light);
+            border-radius: var(--radius);
+            padding: 28px 20px;
+            text-align: center;
+            border: 1px solid rgba(58, 155, 138, 0.06);
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            border-color: rgba(58, 155, 138, 0.2);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .why-card i {
+            font-size: 32px;
+            color: var(--accent);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .why-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .why-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .why-choose {
+                padding: 50px 0;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .why-card {
+                padding: 20px 14px;
+            }
+
+            .why-card h4 {
+                font-size: 14px;
+            }
+
+            .why-card p {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .why-grid {
+                grid-template-columns: 1fr;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+        }
+
+        /* ────────────── PROPERTY TYPES ────────────── */
+        .property-types {
+            padding: 80px 0;
+            background: var(--primary-light);
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .property-item {
+            background: var(--primary);
+            border-radius: var(--radius);
+            padding: 24px 16px;
+            text-align: center;
+            border: 1px solid rgba(58, 155, 138, 0.06);
+            transition: var(--transition);
+        }
+
+        .property-item:hover {
+            border-color: rgba(58, 155, 138, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .property-item i {
+            font-size: 28px;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .property-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .property-item p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .property-types {
+                padding: 50px 0;
+            }
+
+            .property-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 12px;
+            }
+
+            .property-item {
+                padding: 16px 10px;
+            }
+
+            .property-item h4 {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .property-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* ────────────── CTA ────────────── */
+        .cta {
+            padding: 70px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            text-align: center;
+            border-top: 1px solid rgba(58, 155, 138, 0.08);
+            border-bottom: 1px solid rgba(58, 155, 138, 0.08);
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .cta h2 span {
+            color: var(--accent);
+        }
+
+        .cta p {
+            color: var(--text-muted);
+            font-size: 17px;
+            max-width: 560px;
+            margin: 0 auto 28px;
+        }
+
+        .cta .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .cta {
+                padding: 50px 0;
+            }
+
+            .cta h2 {
+                font-size: 26px;
+            }
+
+            .cta p {
+                font-size: 15px;
+            }
+
+            .cta .btn-group {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta h2 {
+                font-size: 22px;
+            }
+
+            .cta p {
+                font-size: 14px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 14px;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        /* ────────────── FOOTER ────────────── */
+        footer {
+            padding: 50px 0 24px;
+            background: var(--primary);
+            border-top: 1px solid rgba(58, 155, 138, 0.06);
+        }
+
+        footer .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 36px;
+        }
+
+        footer .brand h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--white);
+        }
+
+        footer .brand h3 span {
+            color: var(--accent);
+        }
+
+        footer .brand p {
+            color: var(--text-muted);
+            font-size: 14px;
+            max-width: 300px;
+            line-height: 1.7;
+        }
+
+        footer .brand .tagline {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 13px;
+            margin-top: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        footer .brand .socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        footer .brand .socials a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: var(--text-muted);
+            transition: var(--transition);
+            font-size: 16px;
+        }
+
+        footer .brand .socials a:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        footer h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: var(--white);
+        }
+
+        footer ul li {
+            margin-bottom: 8px;
+        }
+
+        footer ul li a {
+            color: var(--text-muted);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        footer ul li a:hover {
+            color: var(--accent);
+        }
+
+        footer ul li i {
+            color: var(--accent);
+            width: 18px;
+            margin-right: 6px;
+            font-size: 13px;
+        }
+
+        footer .bottom {
+            grid-column: 1 / -1;
+            border-top: 1px solid rgba(58, 155, 138, 0.06);
+            padding-top: 18px;
+            margin-top: 18px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        footer .bottom strong {
+            color: var(--accent);
+        }
+
+        @media (max-width: 992px) {
+            footer .container {
+                grid-template-columns: 1fr 1fr;
+                text-align: center;
+                gap: 28px;
+            }
+
+            footer .brand p {
+                max-width: 100%;
+            }
+
+            footer .brand .socials {
+                justify-content: center;
+            }
+
+            footer .brand .tagline {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 40px 0 20px;
+            }
+
+            footer .container {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                text-align: center;
+            }
+
+            footer .brand .socials {
+                justify-content: center;
+            }
+
+            footer .bottom {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="image/Estate logo.png" alt="Daruth Properties Logo" />
+                <div>
+                    <div class="logo-text">Daruth <span>Properties</span></div>
+                    <span class="logo-sub">Real Estate &amp; Property Solutions</span>
+                </div>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html" class="active">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="properties.html">Properties</a>
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+            </nav>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <span class="section-tag">Your Trusted Property Partner</span>
+                <h1>
+                    Building Trust.<br />
+                    <span>Creating Opportunities.</span><br />
+                    Securing Your Future.
+                </h1>
+                <p>
+                    Daruth Properties &amp; Real Estate provides reliable, transparent, and quality property
+                    solutions to individuals, families, businesses, investors, and property developers.
+                </p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                    <a href="services.html" class="btn btn-outline">Our Services</a>
+                </div>
+                <div class="hero-stats">
+                    <div>
+                        <strong>50+</strong>
+                        <span>Properties Sold</span>
+                    </div>
+                    <div>
+                        <strong>100%</strong>
+                        <span>Client Satisfaction</span>
+                    </div>
+                    <div>
+                        <strong>24/7</strong>
+                        <span>Professional Support</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="badge-grid">
+                    <div class="badge-item">
+                        <i class="fas fa-house-chimney"></i>
+                        <h4>Residential</h4>
+                        <p>Flats &amp; apartments</p>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fas fa-vector-square"></i>
+                        <h4>Land Sales</h4>
+                        <p>Prime plots &amp; acres</p>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fas fa-city"></i>
+                        <h4>Commercial</h4>
+                        <p>Offices &amp; retail spaces</p>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fas fa-helmet-safety"></i>
+                        <h4>Development</h4>
+                        <p>Construction &amp; surveying</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-tag">What We Offer</span>
+                <h2>Our <span>Services</span></h2>
+                <p>Professional real estate solutions tailored to your needs – from property sales to development consultancy.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-handshake icon"></i>
+                    <h3>Real Estate Agency</h3>
+                    <p>Professional assistance in buying, selling, renting, and managing properties with transparency and integrity.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-map-location-dot icon"></i>
+                    <h3>Land &amp; Property Sales</h3>
+                    <p>Genuine land and property acquisition with verified documentation and secure transactions.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-house-circle-check icon"></i>
+                    <h3>Housing Solutions</h3>
+                    <p>2-bedroom flats, 3-bedroom flats, single rooms, self-contained apartments, and other residential properties.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-helmet-safety icon"></i>
+                    <h3>Property Development</h3>
+                    <p>Support for individuals and investors interested in residential and commercial property development projects.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-compass-drafting icon"></i>
+                    <h3>Surveying Services</h3>
+                    <p>Professional land surveying and related property documentation support for secure ownership.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-chart-line icon"></i>
+                    <h3>Investment Consultancy</h3>
+                    <p>Expert guidance to clients seeking profitable and secure real estate investment opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE US ============ -->
+    <section class="why-choose" id="why-choose">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-tag">Why Choose Us</span>
+                <h2>Built on <span>Trust</span> &amp; <span>Integrity</span></h2>
+                <p>We understand that buying land or a home is an important decision. That's why we provide dependable information, professional guidance, and quality property options.</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>Professional Service</h4>
+                    <p>Customer-focused service from inquiry to completion with dedicated support.</p>
+                </div>
+
+                <div class="why-card">
+                    <i class="fas fa-shield-check"></i>
+                    <h4>Reliable Solutions</h4>
+                    <p>Trusted property solutions with verified documentation and secure transactions.</p>
+                </div>
+
+                <div class="why-card">
+                    <i class="fas fa-scale-balanced"></i>
+                    <h4>Transparency</h4>
+                    <p>Clear communication, honest advice, and no hidden fees or surprises.</p>
+                </div>
+
+                <div class="why-card">
+                    <i class="fas fa-people-group"></i>
+                    <h4>Dedicated Support</h4>
+                    <p>Committed to helping you make informed property decisions with confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PROPERTY TYPES ============ -->
+    <section class="property-types" id="properties">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-tag">Available Properties</span>
+                <h2>Property <span>Options</span></h2>
+                <p>Explore a wide range of residential and commercial properties tailored to your needs.</p>
+            </div>
+
+            <div class="property-grid">
+                <div class="property-item">
+                    <i class="fas fa-bed"></i>
+                    <h4>Single Rooms</h4>
+                    <p>Affordable living spaces</p>
+                </div>
+
+                <div class="property-item">
+                    <i class="fas fa-house"></i>
+                    <h4>Self-Contained</h4>
+                    <p>Private units with amenities</p>
+                </div>
+
+                <div class="property-item">
+                    <i class="fas fa-building"></i>
+                    <h4>2-Bedroom Flats</h4>
+                    <p>Comfortable family homes</p>
+                </div>
+
+                <div class="property-item">
+                    <i class="fas fa-building-columns"></i>
+                    <h4>3-Bedroom Flats</h4>
+                    <p>Spacious &amp; premium units</p>
+                </div>
+
+                <div class="property-item">
+                    <i class="fas fa-vector-square"></i>
+                    <h4>Land &amp; Plots</h4>
+                    <p>Prime locations for building</p>
+                </div>
+
+                <div class="property-item">
+                    <i class="fas fa-city"></i>
+                    <h4>Commercial Spaces</h4>
+                    <p>Offices, shops &amp; retail</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to Find Your <span>Dream Property</span>?</h2>
+            <p>Contact Daruth Properties &amp; Real Estate today for a confidential consultation. We're here to help you make the right property decision.</p>
+            <div class="btn-group">
+                <a href="mailto:daruth370@gmail.com" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Email Us
+                </a>
+                <a href="tel:+234 803 484 5271" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="container">
+            <div class="brand">
+                <h3><i class="fas fa-building" style="color: var(--accent);"></i> Daruth <span>Properties</span></h3>
+                <p>
+                    Professional real estate solutions – property sales, land transactions, housing,
+                    development, surveying, and investment consultancy.
+                </p>
+                <p class="tagline">Building Trust. Creating Opportunities. Securing Your Future.</p>
+                <div class="socials">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="services.html">Real Estate Agency</a></li>
+                    <li><a href="services.html">Land &amp; Property Sales</a></li>
+                    <li><a href="services.html">Housing Solutions</a></li>
+                    <li><a href="services.html">Property Development</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:daruth370@gmail.com">abolarindaniel@yahoo.com</a></li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:+234 803 484 5271">+234 803 484 5271</a></li>
+                    <li><i class="fas fa-location-dot"></i> Kwara, Nigeria</li>
+                    <li style="font-size:13px; color:var(--text-muted);">Mon – Fri: 8:00 AM – 6:00 PM</li>
+                </ul>
+            </div>
+
+            <div class="bottom">
+                &copy; 2026 <strong>Daruth Properties &amp; Real Estate</strong>. All rights reserved.
+                &bull; Building Trust. Creating Opportunities. Securing Your Future.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ JAVASCRIPT ============ -->
+    <script>
+        // ── Hamburger Toggle ──
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ── Smooth scroll ──
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ── Navbar background on scroll ──
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                header.style.background = 'rgba(18, 24, 28, 0.96)';
+                header.style.borderBottom = '1px solid rgba(58, 155, 138, 0.15)';
+            } else {
+                header.style.background = 'rgba(18, 24, 28, 0.95)';
+                header.style.borderBottom = '1px solid rgba(58, 155, 138, 0.08)';
+            }
+        });
+    </script>
+
+</body>
+</html>
