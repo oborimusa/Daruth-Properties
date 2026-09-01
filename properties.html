@@ -26,7 +26,13 @@
             --header-height: 80px;
         }
         html { scroll-behavior: smooth; }
-        body { font-family: var(--font); background: var(--primary); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        body {
+            font-family: var(--font);
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
         img { max-width: 100%; display: block; }
@@ -76,11 +82,7 @@
             gap: 12px;
             flex-shrink: 0;
         }
-        .logo img {
-            height: 40px;
-            width: auto;
-            display: block;
-        }
+        .logo img { height: 40px; width: auto; display: block; }
         .logo-text { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--white); }
         .logo-text span { color: var(--accent); }
         .logo-sub { font-size: 9px; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-top: -2px; }
@@ -253,8 +255,8 @@
         }
         .properties-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
 
         .property-card {
@@ -271,25 +273,23 @@
         }
         .property-card .image-placeholder {
             background: var(--secondary);
-            padding: 40px 20px;
+            padding: 0;
             text-align: center;
             border-bottom: 1px solid rgba(58, 155, 138, 0.06);
-            min-height: 180px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            height: 200px;
+            overflow: hidden;
         }
         .property-card .image-placeholder img {
             width: 100%;
-            height: 160px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 8px;
+            display: block;
         }
         .property-card .image-placeholder i {
             font-size: 48px;
             color: var(--accent);
             opacity: 0.4;
+            margin-top: 60px;
         }
         .property-card .image-placeholder p {
             color: var(--text-muted);
@@ -297,29 +297,29 @@
             margin-top: 8px;
         }
         .property-card .body {
-            padding: 24px 20px;
+            padding: 20px 18px;
         }
         .property-card .body .tag {
             display: inline-block;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--accent);
             background: rgba(58, 155, 138, 0.1);
             padding: 2px 12px;
             border-radius: 30px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             border: 1px solid rgba(58, 155, 138, 0.1);
         }
         .property-card .body h3 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
         .property-card .body .location {
             color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 10px;
+            font-size: 13px;
+            margin-bottom: 8px;
         }
         .property-card .body .location i {
             color: var(--accent);
@@ -327,10 +327,10 @@
         }
         .property-card .body .details {
             display: flex;
-            gap: 16px;
+            gap: 12px;
             color: var(--text-muted);
-            font-size: 13px;
-            margin-bottom: 14px;
+            font-size: 12px;
+            margin-bottom: 10px;
             flex-wrap: wrap;
         }
         .property-card .body .details span i {
@@ -338,36 +338,34 @@
             margin-right: 4px;
         }
         .property-card .body .price {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 800;
             color: var(--accent);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
         .property-card .body .price span {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 400;
             color: var(--text-muted);
         }
-        .property-card .body .btn-group {
-            display: flex;
-            gap: 10px;
-        }
-        .property-card .body .btn-group .btn {
-            flex: 1;
-            padding: 10px 16px;
-            font-size: 13px;
-        }
 
+        @media (max-width: 992px) {
+            .properties-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
         @media (max-width: 768px) {
             .properties-grid-section { padding: 40px 0 50px; }
             .properties-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-            .property-card .body { padding: 18px 16px; }
-            .property-card .body h3 { font-size: 17px; }
-            .property-card .body .price { font-size: 18px; }
-            .property-card .body .btn-group { flex-direction: column; }
+            .property-card .body { padding: 16px 14px; }
+            .property-card .body h3 { font-size: 16px; }
+            .property-card .body .price { font-size: 17px; }
+            .property-card .image-placeholder { height: 160px; }
         }
         @media (max-width: 480px) {
-            .properties-grid { grid-template-columns: 1fr; }
+            .properties-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+            .property-card .image-placeholder { height: 180px; }
         }
 
         /* ── CTA ── */
@@ -506,92 +504,84 @@
 
             <div class="properties-grid">
 
-                <!-- 2-Bedroom Flat -->
+                <!-- Property 1 -->
                 <div class="property-card">
                     <div class="image-placeholder">
-                        <i class="fas fa-building"></i>
-                        <p>2-Bedroom Flat</p>
+                        <img src="image/building-thumbnail.jpeg" alt="Two-Storey Building" />
                     </div>
                     <div class="body">
-                        <span class="tag">Residential</span>
-                        <h3>2-Bedroom Flat</h3>
-                        <div class="location"><i class="fas fa-location-dot"></i> Lagos, Nigeria</div>
+                        <span class="tag">For Sale</span>
+                        <h3>Two-Storey Building</h3>
+                        <div class="location"><i class="fas fa-location-dot"></i> Ilorin, Kwara</div>
                         <div class="details">
-                            <span><i class="fas fa-bed"></i> 2 Beds</span>
-                            <span><i class="fas fa-bath"></i> 2 Baths</span>
-                            <span><i class="fas fa-vector-square"></i> 80m²</span>
+                            <span><i class="fas fa-vector-square"></i> 675m²</span>
+                            <span><i class="fas fa-road"></i> Main Road</span>
                         </div>
-                        <div class="price">₦25,000,000 <span>/ year</span></div>
-                        <a href="contact.html" class="btn btn-primary btn-sm" style="width:100%;">Enquire Now</a>
+                        <div class="price">₦10,000,000</div>
+                        <a href="property-detail.html" class="btn btn-primary btn-sm" style="width:100%;">View Details</a>
                     </div>
                 </div>
 
-                <!-- 3-Bedroom Flat -->
+                <!-- Property 2 -->
                 <div class="property-card">
                     <div class="image-placeholder">
-                        <i class="fas fa-building-columns"></i>
-                        <p>3-Bedroom Flat</p>
+                        <img src="image/Daruth2.jpeg" alt="3-Bedroom Flat" />
                     </div>
                     <div class="body">
-                        <span class="tag">Residential</span>
-                        <h3>3-Bedroom Flat</h3>
-                        <div class="location"><i class="fas fa-location-dot"></i> Lagos, Nigeria</div>
+                        <span class="tag">For Sale</span>
+                        <h3>6 Unit of 2-Bedroom wing flats on 3 floors  at a corner plot </h3>
+                        <div class="location"><i class="fas fa-location-dot"></i> Ilorin, Nigeria</div>
                         <div class="details">
-                            <span><i class="fas fa-bed"></i> 3 Beds</span>
-                            <span><i class="fas fa-bath"></i> 3 Baths</span>
-                            <span><i class="fas fa-vector-square"></i> 120m²</span>
-                        </div>
-                        <div class="price">₦45,000,000 <span>/ year</span></div>
-                        <a href="contact.html" class="btn btn-primary btn-sm" style="width:100%;">Enquire Now</a>
+                            <span><i class="fas fa-location-dot"></i> Close to Stadium</span>
+                            <!-- <span><i class="fas fa-bath"></i> 3 Baths</span>
+                            <span><i class="fas fa-vector-square"></i> 120m²</span> -->
+                        </div> 
+                        <div class="price">₦70,000,000 <span></span></div>
+                        <a href="property-detail.html" class="btn btn-primary btn-sm" style="width:100%;">View Details</a>
                     </div>
                 </div>
 
-                <!-- Prime Land -->
+                <!-- Property 3 -->
                 <div class="property-card">
                     <div class="image-placeholder">
-                        <i class="fas fa-vector-square"></i>
-                        <p>Prime Land</p>
+                        <img src="image/Daruth3.jpeg" alt="Self-Contained Apartment" />
                     </div>
                     <div class="body">
-                        <span class="tag">Land</span>
-                        <h3>Prime Land for Sale</h3>
-                        <div class="location"><i class="fas fa-location-dot"></i> Lagos, Nigeria</div>
+                        <span class="tag">For Sale</span>
+                        <h3>4 units of 2-bedroom flats and 3 units of Self contained</h3>
+                        <div class="location"><i class="fas fa-location-dot"></i> Ilorin, Nigeria</div>
                         <div class="details">
-                            <span><i class="fas fa-vector-square"></i> 500m²</span>
+                            <span><i class="fas fa-location-dot"></i> At Salvation Street, off Wura Owolabi Street, Chapel Area, Tanke</span>
+                            <!-- <span><i class="fas fa-bath"></i> 1 Bath</span> -->
+                            <span><i class="fas fa-vector-square"></i> Title: Deed of Agreement</span> 
+                        </div>
+                        <div class="price">₦55,000,000 <span></span></div>
+                        <a href="property-detail.html" class="btn btn-primary btn-sm" style="width:100%;">View Details</a>
+                    </div>
+                </div>
+
+                
+                 <div class="property-card">
+                    <div class="image-placeholder">
+                        <img src="image/Daruth4.jpeg" alt="Prime Land" />
+                    </div>
+                    <div class="body">
+                        <span class="tag">Building</span>
+                        <h3>4 units of 3-bedroom flats on 3 floors</h3>
+                        <div class="location"><i class="fas fa-location-dot"></i> Ilorin, Nigeria</div>
+                        <div class="details">
+                            <span><i class="fas fa-location-dot"></i> at Aderemi Kolawole Street, off Old Sawmill Road, Fate-Tanke</span>
                             <span><i class="fas fa-file-signature"></i> Title Available</span>
                         </div>
-                        <div class="price">₦12,500,000 <span>/ plot</span></div>
-                        <a href="contact.html" class="btn btn-primary btn-sm" style="width:100%;">Enquire Now</a>
+                        <div class="price">₦80,000,000 <span></span></div>
+                        <a href="property-detail.html" class="btn btn-primary btn-sm" style="width:100%;">View Details</a>
                     </div>
-                </div>
+                </div> 
 
-                <!-- Two-Storey Building (Updated) -->
-                <div class="property-card">
-                    <div class="image-placeholder" style="padding: 0; overflow: hidden;">
-                        <img src="image/Daruth.jpeg" alt="Two-storey building" style="width:100%; height:180px; object-fit:cover; border-radius: 0;" />
-                    </div>
-                    <div class="body">
-                        <span class="tag">Residential</span>
-                        <h3>Two-Storey Building</h3>
-                        <div class="location"><i class="fas fa-location-dot"></i> Ilorin, Kwara, Nigeria</div>
-                        <div class="details">
-                            <!-- <span><i class="fas fa-bed"></i> 4 Beds</span>
-                            <span><i class="fas fa-bath"></i> 3 Baths</span> -->
-                            <span><i class="fas fa-vector-square"></i> sitting on approximately 675 square meters</span>
-                        </div>
-                        <div class="price">₦10,000,000 <span>/ year</span></div>
-                        <div class="btn-group">
-                            <a href="property-detail.html" class="btn btn-primary btn-sm">View Details</a>
-                            <a href="contact.html" class="btn btn-outline btn-sm">Enquire Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Commercial Space -->
-                <div class="property-card">
+                <!-- Property 5 -->
+                <!-- <div class="property-card">
                     <div class="image-placeholder">
-                        <i class="fas fa-city"></i>
-                        <p>Commercial Space</p>
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=250&fit=crop&crop=center" alt="Commercial Space" />
                     </div>
                     <div class="body">
                         <span class="tag">Commercial</span>
@@ -602,18 +592,17 @@
                             <span><i class="fas fa-store"></i> High Traffic Area</span>
                         </div>
                         <div class="price">₦3,500,000 <span>/ year</span></div>
-                        <a href="contact.html" class="btn btn-primary btn-sm" style="width:100%;">Enquire Now</a>
+                        <a href="property-detail.html" class="btn btn-primary btn-sm" style="width:100%;">View Details</a>
                     </div>
-                </div>
+                </div> -->
 
-                <!-- Single Room -->
-                <div class="property-card">
+                <!-- Property 6 -->
+                <!-- <div class="property-card">
                     <div class="image-placeholder">
-                        <i class="fas fa-bed"></i>
-                        <p>Single Room</p>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=250&fit=crop&crop=center" alt="Single Room" />
                     </div>
                     <div class="body">
-                        <span class="tag">Residential</span>
+                        <span class="tag">For Rent</span>
                         <h3>Single Room</h3>
                         <div class="location"><i class="fas fa-location-dot"></i> Lagos, Nigeria</div>
                         <div class="details">
@@ -622,9 +611,65 @@
                             <span><i class="fas fa-vector-square"></i> 20m²</span>
                         </div>
                         <div class="price">₦1,200,000 <span>/ year</span></div>
-                        <a href="contact.html" class="btn btn-primary btn-sm" style="width:100%;">Enquire Now</a>
+                        <a href="property-detail.html" class="btn btn-primary btn-sm" style="width:100%;">View Details</a>
                     </div>
-                </div>
+                </div> -->
+
+                <!-- Property 7 -->
+                <!-- <div class="property-card">
+                    <div class="image-placeholder">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=250&fit=crop&crop=center" alt="2-Bedroom Flat" />
+                    </div>
+                    <div class="body">
+                        <span class="tag">For Sale</span>
+                        <h3>2-Bedroom Flat</h3>
+                        <div class="location"><i class="fas fa-location-dot"></i> Lagos, Nigeria</div>
+                        <div class="details">
+                            <span><i class="fas fa-bed"></i> 2 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-vector-square"></i> 80m²</span>
+                        </div>
+                        <div class="price">₦25,000,000 <span>/ year</span></div>
+                        <a href="property-detail.html" class="btn btn-primary btn-sm" style="width:100%;">View Details</a>
+                    </div>
+                </div> -->
+
+                <!-- Property 8 -->
+                <!-- <div class="property-card">
+                    <div class="image-placeholder">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=250&fit=crop&crop=center" alt="Luxury Apartment" />
+                    </div>
+                    <div class="body">
+                        <span class="tag">For Sale</span>
+                        <h3>Luxury Apartment</h3>
+                        <div class="location"><i class="fas fa-location-dot"></i> Abuja, Nigeria</div>
+                        <div class="details">
+                            <span><i class="fas fa-bed"></i> 4 Beds</span>
+                            <span><i class="fas fa-bath"></i> 4 Baths</span>
+                            <span><i class="fas fa-vector-square"></i> 180m²</span>
+                        </div>
+                        <div class="price">₦75,000,000 <span>/ year</span></div>
+                        <a href="property-detail.html" class="btn btn-primary btn-sm" style="width:100%;">View Details</a>
+                    </div>
+                </div> -->
+
+                <!-- Property 9 -->
+                <!-- <div class="property-card">
+                    <div class="image-placeholder">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=250&fit=crop&crop=center" alt="Commercial Building" />
+                    </div>
+                    <div class="body">
+                        <span class="tag">Commercial</span>
+                        <h3>Commercial Building</h3>
+                        <div class="location"><i class="fas fa-location-dot"></i> Lagos, Nigeria</div>
+                        <div class="details">
+                            <span><i class="fas fa-vector-square"></i> 300m²</span>
+                            <span><i class="fas fa-building"></i> 3 Floors</span>
+                        </div>
+                        <div class="price">₦95,000,000 <span>/ year</span></div>
+                        <a href="property-detail.html" class="btn btn-primary btn-sm" style="width:100%;">View Details</a>
+                    </div>
+                </div> -->
 
             </div>
 
