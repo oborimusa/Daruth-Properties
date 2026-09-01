@@ -274,6 +274,17 @@
             padding: 40px 20px;
             text-align: center;
             border-bottom: 1px solid rgba(58, 155, 138, 0.06);
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .property-card .image-placeholder img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
         }
         .property-card .image-placeholder i {
             font-size: 48px;
@@ -320,6 +331,7 @@
             color: var(--text-muted);
             font-size: 13px;
             margin-bottom: 14px;
+            flex-wrap: wrap;
         }
         .property-card .body .details span i {
             color: var(--accent);
@@ -336,6 +348,15 @@
             font-weight: 400;
             color: var(--text-muted);
         }
+        .property-card .body .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+        .property-card .body .btn-group .btn {
+            flex: 1;
+            padding: 10px 16px;
+            font-size: 13px;
+        }
 
         @media (max-width: 768px) {
             .properties-grid-section { padding: 40px 0 50px; }
@@ -343,6 +364,7 @@
             .property-card .body { padding: 18px 16px; }
             .property-card .body h3 { font-size: 17px; }
             .property-card .body .price { font-size: 18px; }
+            .property-card .body .btn-group { flex-direction: column; }
         }
         @media (max-width: 480px) {
             .properties-grid { grid-template-columns: 1fr; }
@@ -484,6 +506,7 @@
 
             <div class="properties-grid">
 
+                <!-- 2-Bedroom Flat -->
                 <div class="property-card">
                     <div class="image-placeholder">
                         <i class="fas fa-building"></i>
@@ -503,6 +526,7 @@
                     </div>
                 </div>
 
+                <!-- 3-Bedroom Flat -->
                 <div class="property-card">
                     <div class="image-placeholder">
                         <i class="fas fa-building-columns"></i>
@@ -522,6 +546,7 @@
                     </div>
                 </div>
 
+                <!-- Prime Land -->
                 <div class="property-card">
                     <div class="image-placeholder">
                         <i class="fas fa-vector-square"></i>
@@ -540,25 +565,29 @@
                     </div>
                 </div>
 
+                <!-- Two-Storey Building (Updated) -->
                 <div class="property-card">
-                    <div class="image-placeholder">
-                        <i class="fas fa-house"></i>
-                        <p>Self-Contained Apartment</p>
+                    <div class="image-placeholder" style="padding: 0; overflow: hidden;">
+                        <img src="image/Daruth.jpeg" alt="Two-storey building" style="width:100%; height:180px; object-fit:cover; border-radius: 0;" />
                     </div>
                     <div class="body">
                         <span class="tag">Residential</span>
-                        <h3>Self-Contained Apartment</h3>
-                        <div class="location"><i class="fas fa-location-dot"></i> Lagos, Nigeria</div>
+                        <h3>Two-Storey Building</h3>
+                        <div class="location"><i class="fas fa-location-dot"></i> Ilorin, Kwara, Nigeria</div>
                         <div class="details">
-                            <span><i class="fas fa-bed"></i> 1 Bed</span>
-                            <span><i class="fas fa-bath"></i> 1 Bath</span>
-                            <span><i class="fas fa-vector-square"></i> 45m²</span>
+                            <!-- <span><i class="fas fa-bed"></i> 4 Beds</span>
+                            <span><i class="fas fa-bath"></i> 3 Baths</span> -->
+                            <span><i class="fas fa-vector-square"></i> sitting on approximately 675 square meters</span>
                         </div>
-                        <div class="price">₦8,500,000 <span>/ year</span></div>
-                        <a href="contact.html" class="btn btn-primary btn-sm" style="width:100%;">Enquire Now</a>
+                        <div class="price">₦10,000,000 <span>/ year</span></div>
+                        <div class="btn-group">
+                            <a href="property-detail.html" class="btn btn-primary btn-sm">View Details</a>
+                            <a href="contact.html" class="btn btn-outline btn-sm">Enquire Now</a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Commercial Space -->
                 <div class="property-card">
                     <div class="image-placeholder">
                         <i class="fas fa-city"></i>
@@ -577,6 +606,7 @@
                     </div>
                 </div>
 
+                <!-- Single Room -->
                 <div class="property-card">
                     <div class="image-placeholder">
                         <i class="fas fa-bed"></i>
@@ -600,7 +630,7 @@
 
             <p style="text-align:center; margin-top: 32px; font-size: 15px; color: var(--text-muted);">
                 <i class="fas fa-phone" style="color: var(--accent);"></i>
-                Call <a href="tel:+234 803 484 5271" style="color: var(--accent); font-weight:600;">+234 803 484 5271</a>
+                Call <a href="tel:+2348034845271" style="color: var(--accent); font-weight:600;">+234 803 484 5271</a>
                 to schedule a viewing or inquire about available properties.
             </p>
 
@@ -616,7 +646,7 @@
                 <a href="mailto:abolarindaniel@yahoo.com" class="btn btn-primary">
                     <i class="fas fa-envelope"></i> Email Us
                 </a>
-                <a href="tel:+234 803 484 5271" class="btn btn-outline">
+                <a href="tel:+2348034845271" class="btn btn-outline">
                     <i class="fas fa-phone"></i> Call Now
                 </a>
             </div>
@@ -663,7 +693,7 @@
                 <h4>Contact Us</h4>
                 <ul>
                     <li><i class="fas fa-envelope"></i> <a href="mailto:abolarindaniel@yahoo.com">abolarindaniel@yahoo.com</a></li>
-                    <li><i class="fas fa-phone"></i> <a href="tel:+234 803 484 5271">+234 803 484 5271</a></li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:+2348034845271">+234 803 484 5271</a></li>
                     <li><i class="fas fa-location-dot"></i> Kwara, Nigeria</li>
                     <li style="font-size:13px; color:var(--text-muted);">Mon – Fri: 8:00 AM – 6:00 PM</li>
                 </ul>

@@ -712,10 +712,215 @@
             }
         }
 
+        /* ────────────── FEATURED BUILDING ────────────── */
+        .featured-building {
+            padding: 80px 0;
+            background: var(--primary);
+        }
+
+        .featured-building .image-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(58, 155, 138, 0.08);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .featured-building .image-wrapper img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.4s ease;
+            background: var(--primary);
+        }
+
+        .featured-building .image-wrapper:hover img {
+            transform: scale(1.02);
+        }
+
+        .featured-building .image-wrapper .zoom-hint {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            pointer-events: none;
+            backdrop-filter: blur(4px);
+        }
+
+        .featured-building .property-details {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .featured-building .property-details span i {
+            color: var(--accent);
+            margin-right: 6px;
+        }
+
+        .featured-building .property-price {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: 10px;
+        }
+
+        .featured-building .property-price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .featured-building .btn-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .featured-building .btn-wrapper .btn {
+            min-width: 180px;
+        }
+
+        @media (max-width: 768px) {
+            .featured-building {
+                padding: 50px 0;
+            }
+
+            .featured-building .property-details {
+                gap: 16px;
+                font-size: 13px;
+            }
+
+            .featured-building .property-price {
+                font-size: 22px;
+            }
+
+            .featured-building .image-wrapper .zoom-hint {
+                bottom: 12px;
+                right: 12px;
+                font-size: 11px;
+                padding: 4px 12px;
+            }
+
+            .featured-building .btn-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .featured-building .btn-wrapper .btn {
+                min-width: unset;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .featured-building .property-details {
+                gap: 10px;
+                font-size: 12px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .featured-building .property-price {
+                font-size: 20px;
+            }
+
+            .featured-building .image-wrapper .zoom-hint {
+                bottom: 8px;
+                right: 8px;
+                font-size: 10px;
+                padding: 4px 10px;
+            }
+
+            .featured-building .image-wrapper img {
+                max-height: 300px;
+            }
+        }
+
+        /* ────────────── IMAGE LIGHTBOX ────────────── */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox-overlay.active {
+            display: flex;
+        }
+
+        .lightbox-overlay img {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+            animation: zoomIn 0.3s ease;
+        }
+
+        .lightbox-overlay .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            background: none;
+            border: none;
+            font-family: var(--font);
+            line-height: 1;
+        }
+
+        .lightbox-overlay .close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
         /* ────────────── WHY CHOOSE ────────────── */
         .why-choose {
             padding: 80px 0;
-            background: var(--primary);
+            background: var(--primary-light);
         }
 
         .why-grid {
@@ -725,7 +930,7 @@
         }
 
         .why-card {
-            background: var(--primary-light);
+            background: var(--primary);
             border-radius: var(--radius);
             padding: 28px 20px;
             text-align: center;
@@ -792,7 +997,7 @@
         /* ────────────── PROPERTY TYPES ────────────── */
         .property-types {
             padding: 80px 0;
-            background: var(--primary-light);
+            background: var(--primary);
         }
 
         .property-grid {
@@ -802,7 +1007,7 @@
         }
 
         .property-item {
-            background: var(--primary);
+            background: var(--primary-light);
             border-radius: var(--radius);
             padding: 24px 16px;
             text-align: center;
@@ -1165,6 +1370,41 @@
         </div>
     </section>
 
+    <!-- ============ FEATURED BUILDING ============ -->
+    <section class="featured-building" id="featured">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-tag">Featured Property</span>
+                <h2>New <span>Two-Storey Building</span></h2>
+                <p>A premium residential development in a prime location. Perfect for families or investment.</p>
+            </div>
+
+            <!-- ===== CLICKABLE IMAGE ===== -->
+            <div class="image-wrapper" onclick="openLightbox()">
+                <img src="image/Daruth.jpeg" alt="New two-storey building by Daruth Properties" id="featuredImage" />
+                <span class="zoom-hint"><i class="fas fa-expand"></i> Click to enlarge</span>
+            </div>
+            <!-- ===== IMAGE ENDS ===== -->
+
+            <div class="property-details">
+                <span><i class="fas fa-location-dot"></i> Lagos, Nigeria</span>
+                <span><i class="fas fa-bed"></i> 4 Bedrooms</span>
+                <span><i class="fas fa-bath"></i> 3 Bathrooms</span>
+                <span><i class="fas fa-vector-square"></i> 200m²</span>
+                <span><i class="fas fa-car"></i> 2 Parking Spaces</span>
+            </div>
+
+            <div class="property-price">
+                ₦10,000,000
+            </div>
+
+            <div class="btn-wrapper">
+                <a href="property-detail.html" class="btn btn-primary">View Details</a>
+                <a href="contact.html" class="btn btn-outline">Enquire Now</a>
+            </div>
+        </div>
+    </section>
+
     <!-- ============ SERVICES ============ -->
     <section class="services" id="services">
         <div class="container">
@@ -1306,7 +1546,7 @@
             <h2>Ready to Find Your <span>Dream Property</span>?</h2>
             <p>Contact Daruth Properties &amp; Real Estate today for a confidential consultation. We're here to help you make the right property decision.</p>
             <div class="btn-group">
-                <a href="mailto:daruth370@gmail.com" class="btn btn-primary">
+                <a href="mailto:abolarindaniel@yahoo.com" class="btn btn-primary">
                     <i class="fas fa-envelope"></i> Email Us
                 </a>
                 <a href="tel:+234 803 484 5271" class="btn btn-outline">
@@ -1358,9 +1598,9 @@
             <div>
                 <h4>Contact Us</h4>
                 <ul>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:daruth370@gmail.com">abolarindaniel@yahoo.com</a></li>
-                    <li><i class="fas fa-phone"></i> <a href="tel:+234 803 484 5271">+234 803 484 5271</a></li>
-                    <li><i class="fas fa-location-dot"></i> Kwara, Nigeria</li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:daruth370@gmail.com">daruth370@gmail.com</a></li>
+                    <li><i class="fas fa-phone"></i> <a href="+234 803 484 5271">+234 803 484 5271</a></li>
+                    <li><i class="fas fa-location-dot"></i> Nigeria</li>
                     <li style="font-size:13px; color:var(--text-muted);">Mon – Fri: 8:00 AM – 6:00 PM</li>
                 </ul>
             </div>
@@ -1371,6 +1611,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- ============ IMAGE LIGHTBOX ============ -->
+    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+        <button class="close-btn" onclick="closeLightbox()">✕</button>
+        <img src="image/Daruth.jpeg" alt="New two-storey building by Daruth Properties" id="lightboxImage" />
+    </div>
 
     <!-- ============ JAVASCRIPT ============ -->
     <script>
@@ -1415,6 +1661,26 @@
             } else {
                 header.style.background = 'rgba(18, 24, 28, 0.95)';
                 header.style.borderBottom = '1px solid rgba(58, 155, 138, 0.08)';
+            }
+        });
+
+        // ── Lightbox Functions ──
+        const lightboxOverlay = document.getElementById('lightboxOverlay');
+        const lightboxImage = document.getElementById('lightboxImage');
+
+        function openLightbox() {
+            lightboxOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightboxOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
             }
         });
     </script>
